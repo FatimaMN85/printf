@@ -10,9 +10,9 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
 	int count;
 	char c, *str;
+	va_list args;
 
 	count = 0;
 	if (format == NULL)
@@ -54,7 +54,7 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					count++;
-					break;
+					continue;
 			}
 		}
 		else
