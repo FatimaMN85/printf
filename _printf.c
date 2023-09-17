@@ -31,33 +31,27 @@ int _printf(const char *format, ...)
 				case '\0':
 					break;
 				case 'c':
-					{
-						c = va_arg(args, int);
-						write(1, &c, 1);
-						count++;
-						break;
-					}
+					c = va_arg(args, int);
+					write(1, &c, 1);
+					count++;
+					break;
 				case 's':
+					str = va_arg(args, char *);
+					if (str == NULL)
 					{
-						str = va_arg(args, char *);
-						if (str == NULL)
-						{
-							write(1, "(null)", 6);
-							count+= 6;
-						}
-						else
-						{
-							write(1, str, stlen(str));
-							count += stlen(str);
-						}
-						break;
+						write(1, "(null)", 6);
+						count += 6;
 					}
+					else
+					{
+						write(1, str, stlen(str));
+						count += stlen(str);
+					}
+					break;
 				case '%':
-					{
-						write(1, format, 1);
-						count++;
-						break;
-					}
+					write(1, format, 1);
+					count++;
+					break;
 				default:
 					write(1, "%", 1);
 					count++;
