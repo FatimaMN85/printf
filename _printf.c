@@ -50,14 +50,14 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				default:
-					write(1, format - 1, 2);
+					write(1, *format - 1, 2);
 					count += 2;
 					break;
 			}
 		}
 		else
 		{
-			write(1, format, 1);
+			write(1, *format, 1);
 			count++;
 		}
 		format++;
