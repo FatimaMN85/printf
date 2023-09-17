@@ -6,5 +6,6 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
+int stlen(char *str);
 
 #endif
