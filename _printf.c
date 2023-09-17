@@ -10,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count;
+	int count, x;
 	va_list args;
 	char c, *str;
 
@@ -41,8 +41,9 @@ int _printf(const char *format, ...)
 					}
 					else
 					{
-						write(1, str, stlen(str));
-						count += stlen(str);
+						x = stlen(str);
+						write(1, str, 1);
+						count += x;
 					}
 					break;
 				case '%':
