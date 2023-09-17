@@ -13,10 +13,9 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count, i;
 	char c;
-	char *str;
 
-	i = 0;
 	count = 0;
+	i = 0;
 	if (format == NULL)
 	{
 		return (-1);
@@ -39,7 +38,7 @@ int _printf(const char *format, ...)
 					}
 				case 's':
 					{
-						str = va_arg(args, char *);
+						char *str = va_arg(args, char *);
 						while (str[i])
 						{
 							write(1, &str[i], 1);
@@ -55,8 +54,7 @@ int _printf(const char *format, ...)
 						break;
 					}
 				default:
-					write(1, format, 1);
-					count++;
+					break;
 			}
 		}
 		else
