@@ -10,12 +10,11 @@
  */
 int _printf(const char *format, ...)
 {
-	int count, i;
+	int count;
 	va_list args;
 	char c, *str;
 
 	count = 0;
-	i = 0;
 	va_start(args, format);
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
@@ -36,10 +35,14 @@ int _printf(const char *format, ...)
 				case 's':
 					str = va_arg(args, char *);
 					if (str == NULL)
-						str = "(null)";
-					for (i = 0; str[i] != '\0'; i++)
 					{
-						write(1, &str[i], 1);
+						write(1, "(null)", 6);
+						count += 6;
+					}
+					else
+					{
+						write(1, str, stlen(str));
+						count += stlen(str);
 					}
 					break;
 				case '%':
