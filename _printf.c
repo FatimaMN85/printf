@@ -14,10 +14,15 @@ int _printf(const char *format, ...)
 	int count, i;
 	char c;
 	char *str;
-	va_start(args, format);
 
 	i = 0;
 	count = 0;
+	if (format == NULL)
+	{
+		return (-1);
+	}
+	va_start(args, format);
+
 	while (*format)
 	{
 		if (*format == '%')
