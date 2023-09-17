@@ -50,8 +50,9 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				default:
-					count++;
-					continue;
+					write(1, format - 1, 2);
+					count += 2;
+					break;
 			}
 		}
 		else
