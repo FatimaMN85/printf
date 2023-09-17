@@ -4,8 +4,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int stlen(char *str);
 
 int _printf(const char *format, ...);
-int stlen(char *str);
 
 #endif
