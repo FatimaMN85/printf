@@ -34,14 +34,14 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					str = va_arg(args, char *);
+					x = stlen(str);
 					if (str == NULL)
 					{
-						write(1, "(null)", 6);
-						count += 6;
+						write(1, "(null)", x);
+						count += x;
 					}
 					else
 					{
-						x = stlen(str);
 						write(1, str, x);
 						count += x;
 					}
