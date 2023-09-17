@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 					else
 					{
 						x = stlen(str);
-						write(1, str, 1);
+						write(1, str, x);
 						count += x;
 					}
 					break;
