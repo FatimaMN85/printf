@@ -40,8 +40,16 @@ int _printf(const char *format, ...)
 				case 's':
 					{
 						str = va_arg(args, char *);
-						write(1, str, stlen(str));
-						count+= stlen(str);
+						if (str == NULL)
+						{
+							write(1, "(null)", 6);
+							count+= 6;
+						}
+						else
+						{
+							write(1, str, stlen(str));
+							count += stlen(str);
+						}
 						break;
 					}
 				case '%':
@@ -51,6 +59,8 @@ int _printf(const char *format, ...)
 						break;
 					}
 				default:
+					write(1, "%", 1);
+					count++;
 					break;
 			}
 		}
