@@ -10,10 +10,9 @@
  */
 int _printf(const char *format, ...)
 {
-	int count;
+	int count = 0;
 	va_list args;
 
-	count = 0;
 	va_start(args, format);
 	if (InvalidFormat(format))
 		return (-1);
@@ -30,7 +29,10 @@ int _printf(const char *format, ...)
 				case 's':
 					handleString(va_arg(args, char *), &count);
 					break;
-				case 'd' || 'i':
+				case 'd':
+					printInteger(va_arg(args, int), &count);
+					break;
+				case 'i':
 					printInteger(va_arg(args, int), &count);
 					break;
 				case '%':
