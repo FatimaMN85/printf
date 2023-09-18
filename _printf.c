@@ -39,6 +39,11 @@ int _printf(const char *format, ...)
 						write(1, "(null)", 6);
 						count += 6;
 					}
+					else if (str[0] == '\0')
+					{
+						write(1, " ", 12);
+						count += 12;
+					}
 					else
 					{
 						x = stlen(str);
@@ -51,7 +56,6 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				default:
-					write(1, "%", 1);
 					write(1, format - 1, 2);
 					count += 2;
 					break;
