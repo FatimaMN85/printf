@@ -16,7 +16,7 @@
 void printInteger(int num, int *count)
 {
 	char buffer[12];
-	int len = 0, i;
+	int len = 0;
 	int is_negative = 0;
 
 		if (num < 0)
