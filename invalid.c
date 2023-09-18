@@ -6,7 +6,8 @@
  * @format: the format string
  *
  * Return: true if the format string is invalid, false otherwise.
- */
+*/
+
 bool InvalidFormat(const char *format)
 {
 	if (!format || (format[0] == '%' && !format[1]))
