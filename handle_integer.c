@@ -19,20 +19,20 @@ void printInteger(int num, int *count)
 	int len = 0;
 	int is_negative = 0;
 
-		if (num < 0)
-		{
-			is_negative = 1;
-			num = -num;
-		}
-		do {
-			buffer[len++] = '0' + (num % 10);
-			num /= 10;
-		} while (num > 0);
-		if (is_negative)
-			buffer[len++] = '-';
-		while (len > 0)
-		{
-			write(1, &buffer[--len], 1);
-			(*count)++;
-		}
+	if (num < 0)
+	{
+		is_negative = 1;
+		num = -num;
+	}
+	do {
+		buffer[len++] = '0' + (num % 10);
+		num /= 10;
+	} while (num > 0);
+	if (is_negative)
+		buffer[len++] = '-';
+	while (len > 0)
+	{
+		write(1, &buffer[--len], 1);
+		(*count)++;
+	}
 }
