@@ -3,7 +3,8 @@
 #include "main.h"
 
 /**
- *printInteger: prototype function that print numbers.
+ *printInteger - prototype function that print numbers that
+ *produces output according to a format.
  *
  * @num: parameter number.
  * @count: parameter number.
