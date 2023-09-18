@@ -13,5 +13,6 @@ void handleString(char *str, int *count);
 void handleCharacter(int c, int *count);
 bool InvalidFormat(const char *format);
 int _printf(const char *format, ...);
+void printInteger(int num, int *count);
 
 #endif
