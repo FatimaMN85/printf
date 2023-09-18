@@ -39,11 +39,6 @@ int _printf(const char *format, ...)
 						write(1, "(null)", 6);
 						count += 6;
 					}
-					else if (str[0] == '\0')
-					{
-						write(1, " ", 12);
-						count += 12;
-					}
 					else
 					{
 						x = stlen(str);
