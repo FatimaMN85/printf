@@ -10,15 +10,12 @@
  */
 int _printf(const char *format, ...)
 {
-	int count, x;
+	int count;
 	va_list args;
-	char c, *str;
 
 	count = 0;
 	va_start(args, format);
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
+	if (InvalidFormat(format))
 		return (-1);
 	while (*format)
 	{
@@ -28,23 +25,10 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					c = va_arg(args, int);
-					write(1, &c, 1);
-					count++;
+					handleCharacter(va_arg(args, int), &count);
 					break;
 				case 's':
-					str = va_arg(args, char *);
-					if (str == NULL)
-					{
-						write(1, "(null)", 6);
-						count += 6;
-					}
-					else
-					{
-						x = stlen(str);
-						write(1, str, x);
-						count += x;
-					}
+					handleString(va_arg(args, char *), &count);
 					break;
 				case '%':
 					write(1, "%", 1);
