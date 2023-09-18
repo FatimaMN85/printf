@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 					{
 						x = stlen(str);
 						write(1, str, x);
-						count += stlen(str);
+						count += x;
 					}
 					break;
 				case '%':
