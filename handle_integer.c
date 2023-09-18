@@ -16,7 +16,6 @@
 void printInteger(int num, int *count)
 {
 	char buffer[12];
-
 	int len = 0;
 	int is_negative = 0;
 
@@ -25,7 +24,6 @@ void printInteger(int num, int *count)
 		is_negative = 1;
 		num = -num;
 	}
-
 	do {
 		buffer[len++] = '0' + (num % 10);
 		num /= 10;
