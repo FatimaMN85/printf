@@ -10,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count;
+	int count, x;
 	va_list args;
 	char c, *str;
 
@@ -41,7 +41,8 @@ int _printf(const char *format, ...)
 					}
 					else
 					{
-						write(1, str, stlen(str));
+						x = stlen(str);
+						write(1, str, x);
 						count += stlen(str);
 					}
 					break;
@@ -50,6 +51,7 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				default:
+					write(1, "%", 1);
 					write(1, format - 1, 2);
 					count += 2;
 					break;
