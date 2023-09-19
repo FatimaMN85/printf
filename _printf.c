@@ -29,6 +29,10 @@ int _printf(const char *format, ...)
 				case 's':
 					handleString(va_arg(args, char *), &count);
 					break;
+				case 'd':
+				case 'i':
+					printInteger(va_arg(args, int), &count);
+					break;
 				case '%':
 					write(1, "%", 1);
 					count++;
