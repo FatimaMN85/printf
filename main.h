@@ -10,7 +10,6 @@
 
 #define BUFF_SIZE 1024
 
-int handleSpecifier(char specifier, va_list args, int *count);
 int stlen(char *str);
 void handleString(char *str, int *count);
 void handleCharacter(int c, int *count);
