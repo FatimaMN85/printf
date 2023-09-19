@@ -17,17 +17,22 @@ void printInteger(int num, int *count)
 
 	len = 0;
 	is_negative = 0;
-	if (num < 0)
+	if (num == 0)
 	{
-		is_negative = 1;
-		num = -num;
+		buffer[len++] = '0';
 	}
-	do 
+	else
 	{
-		buffer[len++] = '0' + (num % 10);
-		num /= 10;
-	} while (num > 0);
-
+		if (num < 0)
+		{
+			is_negative = 1;
+			num = -num;
+		}
+		do {
+			buffer[len++] = '0' + (num % 10);
+			num /= 10;
+		} while (num > 0);
+	}
 	if (is_negative)
 		buffer[len++] = '-';
 
