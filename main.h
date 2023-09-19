@@ -8,6 +8,8 @@
 #include <limits.h>
 #include <stdbool.h>
 
+#define BUFF_SIZE 1024
+
 int stlen(char *str);
 void handleString(char *str, int *count);
 void handleCharacter(int c, int *count);
