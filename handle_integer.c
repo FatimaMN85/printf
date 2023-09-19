@@ -16,9 +16,11 @@
 void printInteger(int num, int *count)
 {
 	char buffer[24];
-	int len = 0;
-	int is_negative = 0;
+	int len;
+	int is_negative;
 
+	len = 0;
+	is_negative = 0;
 	if (num < 0)
 	{
 		is_negative = 1;
@@ -29,7 +31,9 @@ void printInteger(int num, int *count)
 		num /= 10;
 	} while (num > 0);
 	if (is_negative)
+	{
 		buffer[len++] = '-';
+	}
 	while (len > 0)
 	{
 		write(1, &buffer[--len], 1);
