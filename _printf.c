@@ -30,8 +30,6 @@ int _printf(const char *format, ...)
 					handleString(va_arg(args, char *), &count);
 					break;
 				case 'd':
-					printInteger(va_arg(args, int), &count);
-					break;
 				case 'i':
 					printInteger(va_arg(args, int), &count);
 					break;
