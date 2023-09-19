@@ -1,18 +1,14 @@
-#include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
+#include <stdlib.h>
 
 /**
- *printInteger - prototype function that print numbers that
- *produces output according to a format.
- *
+ * printInteger - print numbers that produces output according to a format.
  * @num: parameter number.
  * @count: parameter number.
  *
  * Return: 1 if succes.
- *
-*/
-
+ */
 void printInteger(int num, int *count)
 {
 	char buffer[24];
@@ -26,14 +22,15 @@ void printInteger(int num, int *count)
 		is_negative = 1;
 		num = -num;
 	}
-	do {
+	do 
+	{
 		buffer[len++] = '0' + (num % 10);
 		num /= 10;
 	} while (num > 0);
+
 	if (is_negative)
-	{
 		buffer[len++] = '-';
-	}
+
 	while (len > 0)
 	{
 		write(1, &buffer[--len], 1);
