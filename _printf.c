@@ -21,29 +21,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
-			{
-				case 'c':
-					handleCharacter(va_arg(args, int), &count);
-					break;
-				case 's':
-					handleString(va_arg(args, char *), &count);
-					break;
-				case 'd':
-					printInteger(va_arg(args, int), &count);
-					break;
-				case 'i':
-					printInteger(va_arg(args, int), &count);
-					break;
-				case '%':
-					write(1, "%", 1);
-					count++;
-					break;
-				default:
-					write(1, format - 1, 2);
-					count += 2;
-					break;
-			}
+			handleSpecifier(*format, args, &count);
 		}
 		else
 		{
