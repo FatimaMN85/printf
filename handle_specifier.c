@@ -5,6 +5,7 @@
 /**
  * handleSpecifier - handle the specifier
  * @s: the specifier
+ * @args: argument
  * @count: counter
  * Return: 0
  */
